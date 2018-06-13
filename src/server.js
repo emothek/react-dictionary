@@ -16,9 +16,11 @@ app.get('/synonyms/:word', (req, res) => {
     console.log('test')
     axios.get('https://od-api.oxforddictionaries.com/api/v1/entries/en/' + req.params.word + '/synonyms', config).then(function(response){
         res.json(response.data)
+    }).catch(function(error){
+        res.status(200).send({results: '404 Not Found'})
     })
 })
 
-app.listen(8080, () => console.log('Example app listening on port 8080!'))
+app.listen(8080, () => console.log('Dictionary App API listening on port 8080!'))
 
 

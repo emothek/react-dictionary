@@ -5,10 +5,14 @@ import Result from './Result'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {findWordSynonyms, updateSearchKeyword, loadingResults} from '../../actions/dictionaryAction'
+
 class Search extends Component {
     
     constructor() {
         super()
+        this.state = {
+            searchKeyword: ''
+        }
         this._onSearchKeywordUpdate = this._onSearchKeywordUpdate.bind(this)
         this._handleSearchWordSynonyms = this._handleSearchWordSynonyms.bind(this)
     }
@@ -19,6 +23,7 @@ class Search extends Component {
 
     _handleSearchWordSynonyms = () => {
         this.props.loadingResults();
+        this.setState({searchKeyword: this.props.keyword})
         this.props.findWordSynonyms(this.props.keyword)
     }
 
@@ -28,6 +33,9 @@ class Search extends Component {
         } 
         else if(this.props.results === null) {
             return <ResultMessage message={'Please type in a word to show synonyms.'}/>
+        }
+        else if (this.props.results === "404 Not Found") {
+            return <ResultMessage message={'Sorry but there is no synonym found for the word: ' + this.state.searchKeyword}/>
         }
         else {
             return <Result data={this.props.results} />
@@ -42,6 +50,7 @@ class Search extends Component {
             </div>
         )
     }
+
 }
 
 function mapStateToProps(state) {

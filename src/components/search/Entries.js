@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Senses from './Senses'
 
 class Entries extends Component {
+
     render() {
         let data = this.props.data
         let senses = this.props.data.entries[0].senses
@@ -19,6 +20,7 @@ class Entries extends Component {
             </div>
         )
     }
+    
 }
 
 export default Entries

@@ -3,7 +3,7 @@ import * as dictionaryApi from '../apis/dictionaryApi'
 
 export const findWordSynonyms = (word) => {
     console.log('search for ', word)
-    if(word == null) {
+    if(word == null || word === "") {
       return {
         type: ActionConstants.SEARCH_RESULTS_LOADED, 
         payload: null
@@ -22,11 +22,21 @@ export const findWordSynonyms = (word) => {
         else {
           console.log('call api!!', word)
           dictionaryApi.getWordSynonyms(word).then((response)=>{
-              localStorage.setItem(word, JSON.stringify(response.data.results))
-              dispatch({
-                type: ActionConstants.SEARCH_RESULTS_LOADED, 
-                payload: response.data.results
-              })
+              // return not found when there's no synonym
+              if(response.data.results === '404 Not Found') {
+                dispatch({
+                  type: ActionConstants.SEARCH_RESULTS_LOADED, 
+                  payload: "404 Not Found"
+                })
+              } 
+              // return results when there's synoynm data
+              else {
+                localStorage.setItem(word, JSON.stringify(response.data.results))
+                dispatch({
+                  type: ActionConstants.SEARCH_RESULTS_LOADED, 
+                  payload: response.data.results
+                })
+              }
           })
         }
       }
