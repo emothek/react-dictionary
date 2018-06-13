@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import {Row, Col, Card, CardBody, CardTitle, CardSubtitle} from 'reactstrap'
-import Senses from './Senses'
+import {Row, Col, Card, CardBody, CardTitle} from 'reactstrap'
 import Entries from './Entries'
 
 class Result extends Component {
