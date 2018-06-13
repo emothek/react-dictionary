@@ -5,12 +5,12 @@ class Header extends Component {
 
     render() {
         return(
-            <Navbar color="dark" dark>
+            <Navbar color={'dark'} dark>
                 <NavbarBrand href="/">Dictionary App</NavbarBrand>
             </Navbar>
         )
     }
-    
+
 }
 
 export default Header

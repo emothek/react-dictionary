@@ -8,6 +8,10 @@ body {
     margin-bottom: 60px;
 }
 
+nav.bg-dark {
+    background-color: #222f3e !important;
+}
+
 .footer {
     position: absolute;
     bottom: 0;

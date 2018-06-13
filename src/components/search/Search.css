@@ -1,0 +1,26 @@
+.jumbotron {
+    background: #0abde3;
+    color: #fff;
+}
+
+.search-bar {
+    padding: 15px;
+    font-weight: 600;
+    font-size: 1.25em;
+    background-color: #fff;
+}
+  
+.search-bar::placeholder { 
+    color: #f3f3f3;
+    opacity: 1; 
+}
+  
+.search-btn {
+    font-weight: 600;
+    padding: 17px;
+}
+
+.category-text {
+    font-weight: 600;
+    color: #ffa71f;
+}
