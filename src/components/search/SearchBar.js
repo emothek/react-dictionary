@@ -3,6 +3,17 @@ import {Row, Col, Jumbotron, InputGroup, Input, Button} from 'reactstrap'
 
 class SearchBar extends Component {
 
+    constructor() {
+        super()
+        this._handleKeyPress = this._handleKeyPress.bind(this)
+    }
+
+    _handleKeyPress = (e) => {
+        if(e.key == 'Enter') {
+            this.props.search()
+        }
+    }
+
     render() {
         return(
             <Row>   
@@ -10,7 +21,7 @@ class SearchBar extends Component {
                     <Jumbotron>
                         <h4>Search Synonyms</h4>
                         <InputGroup>
-                            <Input placeholder={'Type word...'} className={'search-bar'} onChange={this.props.updateKeyword} />
+                            <Input placeholder={'Type word...'} className={'search-bar'} onKeyPress={this._handleKeyPress} onChange={this.props.updateKeyword} />
                             <Button color={'warning'} className={'search-btn'} onClick={this.props.search}>
                                 Search
                             </Button>
