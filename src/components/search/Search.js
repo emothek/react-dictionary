@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
 import SearchBar from './SearchBar'
+import ResultMessage from './ResultMessage'
 import Result from './Result'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {findWordSynonyms, updateSearchKeyword} from '../../actions/dictionaryAction'
+import {findWordSynonyms, updateSearchKeyword, loadingResults} from '../../actions/dictionaryAction'
 class Search extends Component {
     
     constructor() {
@@ -17,16 +18,27 @@ class Search extends Component {
     }
 
     _handleSearchWordSynonyms = () => {
+        this.props.loadingResults();
         this.props.findWordSynonyms(this.props.keyword)
+    }
+
+    _renderResults = () => {
+        if(this.props.results === false ) {
+            return <ResultMessage message={'Loading results please wait...'}/>
+        } 
+        else if(this.props.results === null) {
+            return <ResultMessage message={'Please type in a word to show synonyms.'}/>
+        }
+        else {
+            return <Result data={this.props.results} />
+        }
     }
 
     render() {
         return(
             <div>
                 <SearchBar search={this._handleSearchWordSynonyms}  updateKeyword={this._onSearchKeywordUpdate} />
-                {this.props.results &&
-                    <Result data={this.props.results}/>
-                }
+                { this._renderResults() }
             </div>
         )
     }
@@ -42,7 +54,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
         updateSearchKeyword: updateSearchKeyword,
-        findWordSynonyms: findWordSynonyms
+        findWordSynonyms: findWordSynonyms,
+        loadingResults: loadingResults
     }, dispatch)
 }
 

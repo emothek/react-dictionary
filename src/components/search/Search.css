@@ -20,6 +20,16 @@
     padding: 17px;
 }
 
+.result-message {
+    color: #dedede;
+    text-align: center;
+    padding-top: 150px;
+}
+
+.result-card-body {
+    min-height: 500px;
+}
+
 .keyword-text {
     font-size: 1.90em;
     font-weight: 700;

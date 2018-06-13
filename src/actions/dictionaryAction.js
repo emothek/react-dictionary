@@ -3,7 +3,13 @@ import * as dictionaryApi from '../apis/dictionaryApi'
 
 export const findWordSynonyms = (word) => {
     console.log('search for ', word)
-    return(dispatch) => {
+    if(word == null) {
+      return {
+        type: ActionConstants.SEARCH_RESULTS_LOADED, 
+        payload: null
+      }
+    } else {
+      return(dispatch) => {
         //get from localstorage when its a persistent data
         if(localStorage.getItem(word)) {
           console.log('get from localstorage!!', word)
@@ -23,7 +29,9 @@ export const findWordSynonyms = (word) => {
               })
           })
         }
+      }
     }
+    
 }
 
 export const updateSearchKeyword = (word) => {
@@ -33,4 +41,14 @@ export const updateSearchKeyword = (word) => {
         payload: word
       })
     }
+}
+
+
+export const loadingResults = () => {
+  return(dispatch) => {
+    dispatch({
+      type: ActionConstants.SEARCH_RESULTS_LOADED,
+      payload: false
+    })
+  }
 }
