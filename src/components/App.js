@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 import Layout from './layout/Layout'
-import SearchBar from './search/SearchBar'
-import Result from './search/Result'
+import Search from './search/Search'
 
 class App extends Component {
 
   render() {
     return (
         <Layout>
-            <SearchBar />
-            <Result />
+            <Search />
         </Layout>
     )
   }
 
 }
 
-export default App;
+export default App

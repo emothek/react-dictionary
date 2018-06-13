@@ -3,14 +3,6 @@ import {Row, Col, Jumbotron, InputGroup, Input, Button} from 'reactstrap'
 
 class SearchBar extends Component {
 
-    _onSearchTextChange(e) {
-    
-    }
-
-    _searchWordSynonyms() {
-        console.log('search!')
-    }
-
     render() {
         return(
             <Row>   
@@ -18,8 +10,8 @@ class SearchBar extends Component {
                     <Jumbotron>
                         <h4>Search Synonyms</h4>
                         <InputGroup>
-                            <Input placeholder={'Type word...'} className={'search-bar'} onChange={this._onSearchTextChange} />
-                            <Button color={'warning'} className={'search-btn'} onClick={this._searchWordSynonyms}>
+                            <Input placeholder={'Type word...'} className={'search-bar'} onChange={this.props.updateKeyword} />
+                            <Button color={'warning'} className={'search-btn'} onClick={this.props.search}>
                                 Search
                             </Button>
                         </InputGroup>
