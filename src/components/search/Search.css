@@ -16,11 +16,24 @@
 }
   
 .search-btn {
-    font-weight: 600;
+    font-weight: 700;
     padding: 17px;
+}
+
+.keyword-text {
+    font-size: 1.90em;
+    font-weight: 700;
 }
 
 .category-text {
     font-weight: 600;
+    text-transform: uppercase;
     color: #ffa71f;
 }
+
+.synonym-text {
+    font-size: 1rem;
+    opacity: 0.5;
+    font-weight: bold;
+}
+

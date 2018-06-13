@@ -5,7 +5,7 @@ html {
 
 body {
     background: #f9f9f9;
-    margin-bottom: 60px;
+    margin-bottom: 120px;
 }
 
 nav.bg-dark {
@@ -22,6 +22,7 @@ nav.bg-dark {
     text-align: center;
     color: #fff;
     opacity: 0.8;
+    font-size: small !important;
 }
   
   

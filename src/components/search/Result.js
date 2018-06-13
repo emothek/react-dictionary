@@ -1,21 +1,26 @@
 import React, {Component} from 'react'
 import {Row, Col, Card, CardBody, CardTitle, CardSubtitle} from 'reactstrap'
 import Senses from './Senses'
+import Entries from './Entries'
 
 class Result extends Component {
 
     render() {
+        let result = this.props.data[0]
         return(
             <Row>
                 <Col md={{size: 10, offset: 1}} lg={{size: 8, offset: 2}}>
                     <Card>
                         <CardBody>
-                            <CardTitle>
-                                royal
+                            <CardTitle className={'keyword-text'}>
+                                { result.word }
                             </CardTitle>
                             <hr/>
-                            <CardSubtitle className={'category-text'}>Noun</CardSubtitle>
-                            <Senses />
+                            { result.lexicalEntries.length > 0 &&
+                                result.lexicalEntries.map((entry, index)=>
+                                    <Entries key={index} data={entry}/>
+                                )
+                            }
                         </CardBody>
                     </Card>
                 </Col>

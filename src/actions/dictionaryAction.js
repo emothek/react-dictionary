@@ -1,12 +1,11 @@
 import ActionConstants from '../constants/ActionConstants'
+import * as dictionaryApi from '../apis/dictionaryApi'
 
 export const findWordSynonyms = (word) => {
     console.log('search for ', word)
     return(dispatch) => {
-        let results = null // call api here
-        dispatch({
-          type: ActionConstants.SEARCH_RESULTS_LOADED, 
-          payload: results
+        dictionaryApi.getWordSynonyms(word).then((response)=>{
+          dispatch({type: ActionConstants.SEARCH_RESULTS_LOADED, payload: response.data.results})
         })
     }
 }

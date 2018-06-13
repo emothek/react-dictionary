@@ -24,7 +24,9 @@ class Search extends Component {
         return(
             <div>
                 <SearchBar search={this._handleSearchWordSynonyms}  updateKeyword={this._onSearchKeywordUpdate} />
-                <Result />
+                {this.props.results &&
+                    <Result data={this.props.results}/>
+                }
             </div>
         )
     }
