@@ -6,9 +6,9 @@ A Dictionary App using React-Redux powered by Oxford Dictionary API
 ```sh
 git clone https://github.com/chagonzles/dictionary-app.git
 ```
-- Change directory or cd to directory-app
+- Change directory or cd to dictionary-app
 ```sh
-cd directory-app
+cd dictionary-app
 ```
 - Install dependencies
 ```sh
