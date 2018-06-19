@@ -19,3 +19,8 @@ npm install
 ```sh
 npm start
 ```
+
+## Notes:
+- To view the app go to browser and type `localhost:3000`
+- `localhost:8080` is a nodejs server app for calling Oxford API to fix CORS issue
+- `localhost:8080/synonyms/<word>` is used for calling the Thesaurus GET API from Oxford Dictionary API internally from the client and <word> is any word for example, `localhost:8080/synonyms/code`
