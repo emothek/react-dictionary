@@ -1,7 +1,10 @@
 # dictionary-app
 A Dictionary App using React-Redux powered by Oxford Dictionary API
 
-## To run project:
+## Live Demo 
+https://react-dictionary-app.herokuapp.com/
+
+## To run project locally:
 - Clone or download the dictionary-app repository
 ```sh
 git clone https://github.com/chagonzles/dictionary-app.git
