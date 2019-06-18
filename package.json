@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": ">=0.18.1  ",
+    "axios": ">=0.18.1",
     "bootstrap": ">=4.3.1",
     "express": "^4.16.3",
     "react": "^16.4.0",
@@ -15,7 +15,7 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "npm run server && npm run client",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
 	  "client": "react-scripts start",
 	  "server": "node src/server.js",
     "build": "react-scripts build",
