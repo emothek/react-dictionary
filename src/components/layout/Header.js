@@ -6,7 +6,7 @@ class Header extends Component {
     render() {
         return(
             <Navbar color={'dark'} dark>
-                <NavbarBrand href="/">Dictionary App</NavbarBrand>
+                <NavbarBrand href="/">Dictionary</NavbarBrand>
             </Navbar>
         )
     }
