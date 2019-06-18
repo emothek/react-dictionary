@@ -21,6 +21,4 @@ app.get('/synonyms/:word', (req, res) => {
     })
 })
 
-app.listen(8080, () => console.log('Dictionary App API listening on port 8080!'))
-
-
+app.listen(process.env.PORT || 5000)
